@@ -32,6 +32,9 @@ app.use((req, res, next) => {
 // Set Template Engine
 app.set("view engine", "ejs");
 
+// Render ejs files
+app.set("views", "views");
+
 // Route prefix
 app.use("", require("./routes/routes"));
 

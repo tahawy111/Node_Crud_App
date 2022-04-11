@@ -1,0 +1,7 @@
+<%- include('./parts/head.ejs') %> <%# Navbar %> <%-
+include('./parts/navbar.ejs') %>
+
+<%# Here Type Html Codes  %> 
+
+<%# Footer %>
+<%-include('./parts/footer.ejs') %>
