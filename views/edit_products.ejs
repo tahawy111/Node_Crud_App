@@ -5,12 +5,12 @@ include('./parts/navbar.ejs') %>
   <div class="row">
     <div class="col-lg-6 mx-auto mt-4">
       <div class="card shadow">
-        <div class="card-header bg-primary">
+        <div class="card-header bg-success">
           <h3 class="text-light">Edit Product (<%= product.name %>)</h3>
         </div>
         <div class="card-body p-4">
           <form
-            action="/update/<%= user._id %> "
+            action="/update/<%= product._id %> "
             method="post"
             id="add-form"
             enctype="multipart/form-data"
@@ -117,7 +117,7 @@ include('./parts/navbar.ejs') %>
             <input
               type="submit"
               name="submit"
-              value="Add Product"
+              value="Edit Product"
               class="btn btn-primary btn-lg"
             />
           </form>

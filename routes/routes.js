@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/products");
 const multer = require("multer");
+const fs = require("fs");
 
 // Image upload
 let storage = multer.diskStorage({
@@ -59,6 +60,35 @@ router.get("/add", (req, res) => {
   res.render("add_products", {
     title: "Add Products",
   });
+});
+router.get("/edit/:id", (req, res) => {
+  let id = req.params.id;
+  Product.findById(id, (err, product) => {
+    if (err) {
+      res.redirect("/");
+    } else {
+      if (product == null) {
+        res.redirect("/");
+      } else {
+        res.render("edit_products", {
+          title: "Edit Product",
+          product: product,
+        });
+      }
+    }
+  });
+});
+
+router.post("/update/:id", upload, (req, res) => {
+  let id = req.params.id;
+  let new_image = "";
+
+  if (req.file) {
+    new_image = req.file.filename;
+        try{
+      fs.unlinkSync('./uploads/' + req.body.old_image);
+          }
+  }
 });
 
 module.exports = router;
