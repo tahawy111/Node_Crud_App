@@ -85,10 +85,63 @@ router.post("/update/:id", upload, (req, res) => {
 
   if (req.file) {
     new_image = req.file.filename;
-        try{
-      fs.unlinkSync('./uploads/' + req.body.old_image);
-          }
+    try {
+      fs.unlinkSync("./uploads/" + req.body.old_image);
+    } catch (err) {
+      console.log(err);
+    }
+  } else {
+    new_image = req.body.old_image;
   }
+
+  Product.findByIdAndUpdate(
+    id,
+    {
+      name: req.body.name,
+      image: new_image,
+      price: req.body.price,
+      amount: req.body.amount,
+      wholesale: req.body.wholesale,
+      deller: req.body.deller,
+      barcode: req.body.barcode,
+      category: req.body.category,
+    },
+    (err, result) => {
+      if (err) {
+        result.json({ message: err.message, type: "danger" });
+      } else {
+        req.session.message = {
+          type: "success",
+          message: "Product Updated Successfully",
+        };
+        res.redirect("/");
+      }
+    }
+  );
+});
+
+// Delete Product Route
+
+router.get("/delete/:id", (req, res) => {
+  let id = req.params.id;
+  Product.findByIdAndRemove(id, (err, result) => {
+    if (req.image != "") {
+      try {
+        fs.unlinkSync("./uploads/" + result.image);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    if (err) {
+      res.json({ message: err.message });
+    } else {
+      req.session.message = {
+        type: "info",
+        message: "Product Deleted Successfully",
+      };
+      res.redirect("/");
+    }
+  });
 });
 
 module.exports = router;
