@@ -44,8 +44,15 @@ router.post("/add", upload, (req, res, next) => {
 
 // Get all products route
 router.get("/", (req, res) => {
-  res.render("index", {
-    title: "Home",
+  Product.find().exec((err, products) => {
+    if (err) {
+      res.json({ message: err.message });
+    } else {
+      res.render("index", {
+        title: "Home",
+        products: products,
+      });
+    }
   });
 });
 router.get("/add", (req, res) => {

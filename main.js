@@ -22,6 +22,7 @@ app.use(
 
 // Static files
 app.use(express.static(path.join(__dirname, "assets")));
+app.use(express.static(path.join(__dirname, "uploads")));
 
 app.use((req, res, next) => {
   res.locals.message = req.session.message;

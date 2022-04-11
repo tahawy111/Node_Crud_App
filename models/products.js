@@ -8,6 +8,11 @@ const ProductSchema = new mongoose.Schema({
   amount: Number,
   barcode: Number,
   category: String,
+  created: {
+    type: Date,
+    required: true,
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model("Product", ProductSchema);
