@@ -1,0 +1,112 @@
+<%- include('./parts/head.ejs') %> <%# Navbar %> <%-
+include('./parts/navbar.ejs') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto mt-4">
+      <div class="card shadow">
+        <div class="card-header bg-primary">
+          <h3 class="text-light">Add New Product</h3>
+        </div>
+        <div class="card-body p-4">
+          <form
+            action="/add"
+            method="post"
+            id="add-form"
+            enctype="multipart/form-data"
+          >
+            <div class="mb-3">
+              <label class="fs-5" for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                class="form-control form-control-lg"
+                placeholder="Enter Name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="price">Price</label>
+              <input
+                type="number"
+                name="price"
+                class="form-control form-control-lg"
+                placeholder="Enter Price"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="wholesale">Wholesale</label>
+              <input
+                type="number"
+                name="wholesale"
+                class="form-control form-control-lg"
+                placeholder="Enter Wholesale"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="deller">Deller</label>
+              <input
+                type="number"
+                name="deller"
+                class="form-control form-control-lg"
+                placeholder="Enter Deller"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="amount">Amount</label>
+              <input
+                type="number"
+                name="amount"
+                class="form-control form-control-lg"
+                placeholder="Enter Amount"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="barcode">Barcode</label>
+              <input
+                type="number"
+                name="barcode"
+                class="form-control form-control-lg"
+                placeholder="Enter Barcode"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="category">Category</label>
+              <input
+                type="text"
+                name="category"
+                class="form-control form-control-lg"
+                placeholder="Enter Category"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="image" class="fs-5" class="form-label"
+                >Select Image</label
+              >
+              <input
+                type="file"
+                name="image"
+                class="form-control form-control-lg"
+                required
+              />
+            </div>
+            <input
+              type="submit"
+              name="submit"
+              value="Add Product"
+              class="btn btn-primary btn-lg"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# Footer %> <%-include('./parts/footer.ejs') %>
