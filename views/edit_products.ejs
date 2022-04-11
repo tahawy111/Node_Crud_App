@@ -1,0 +1,130 @@
+<%- include('./parts/head.ejs') %> <%# Navbar %> <%-
+include('./parts/navbar.ejs') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto mt-4">
+      <div class="card shadow">
+        <div class="card-header bg-primary">
+          <h3 class="text-light">Edit Product (<%= product.name %>)</h3>
+        </div>
+        <div class="card-body p-4">
+          <form
+            action="/update/<%= user._id %> "
+            method="post"
+            id="add-form"
+            enctype="multipart/form-data"
+          >
+            <div class="mb-3">
+              <label class="fs-5" for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                value="<%= product.name %>"
+                class="form-control form-control-lg"
+                placeholder="Enter Name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="price">Price</label>
+              <input
+                type="number"
+                name="price"
+                value="<%= product.price %>"
+                class="form-control form-control-lg"
+                placeholder="Enter Price"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="wholesale">Wholesale</label>
+              <input
+                type="number"
+                name="wholesale"
+                value="<%= product.wholesale %>"
+                class="form-control form-control-lg"
+                placeholder="Enter Wholesale"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="deller">Deller</label>
+              <input
+                type="number"
+                name="deller"
+                value="<%= product.deller %>"
+                class="form-control form-control-lg"
+                placeholder="Enter Deller"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="amount">Amount</label>
+              <input
+                type="number"
+                name="amount"
+                value="<%= product.amount %>"
+                class="form-control form-control-lg"
+                placeholder="Enter Amount"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="barcode">Barcode</label>
+              <input
+                type="number"
+                name="barcode"
+                value="<%= product.barcode %>"
+                class="form-control form-control-lg"
+                placeholder="Enter Barcode"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="fs-5" for="category">Category</label>
+              <input
+                type="text"
+                name="category"
+                value="<%= product.category %>"
+                class="form-control form-control-lg"
+                placeholder="Enter Category"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="image" class="fs-5" class="form-label"
+                >Select Image</label
+              >
+              <input
+                type="file"
+                name="image"
+                class="form-control form-control-lg"
+                required
+              />
+              <img
+                src="/<%= product.image %>"
+                width="300"
+                class="img-thumbnail"
+                alt=""
+              />
+            </div>
+            <input
+              type="hidden"
+              name="old_image"
+              value="<%= product.image  %>"
+            />
+            <input
+              type="submit"
+              name="submit"
+              value="Add Product"
+              class="btn btn-primary btn-lg"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# Footer %> <%-include('./parts/footer.ejs') %>
