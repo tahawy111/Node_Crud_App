@@ -1,6 +1,18 @@
     <%# Script %>
+    <script src="/js/jquery.min.js" referrerpolicy="no-referrer"></script>
     <script src="/js/all.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/datatables.min.js"></script>
+
+    <script>
+      $(document).ready(function (){
+
+        $("table").DataTable({
+          order:[0, 'desc'],
+           pageLength: 5,
+        })
+
+      })
+    </script>
   </body>
 </html>

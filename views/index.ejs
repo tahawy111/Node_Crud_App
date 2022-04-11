@@ -21,7 +21,7 @@ include('./parts/navbar.ejs') %>
       <div class="table-responsive">
         <% if (products != "") { %>
 
-        <table class="table table-striped text-center">
+        <table class="table table-striped text-center my-3">
           <thead>
             <tr class="table-dark">
               <th>#</th>
@@ -40,7 +40,7 @@ include('./parts/navbar.ejs') %>
             <% products.forEach((row,index) => { %>
             <tr>
               <td><%= index + 1 %></td>
-              <td>Keyboard</td>
+              <td><%= row.name %></td>
               <td>
                 <img src="<%= row.image %>" width="250" class="img-thumbnail" />
               </td>
